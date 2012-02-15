@@ -46,7 +46,7 @@ BOARD_HAS_INTERNAL_PARTITIONS := true
 
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom msm_watchdog.appsbark=0 msm_watchdog.enable=1 loglevel=4
 BOARD_KERNEL_BASE := 0x40400000
-BOARD_KERNEL_PAGESIZE := 00000800
+BOARD_KERNEL_PAGESIZE := 2048
 
 # fix this up by examining /proc/mtd on a running device
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00a00000
