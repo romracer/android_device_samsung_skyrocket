@@ -40,6 +40,7 @@ TARGET_ARCH_VARIANT_CPU := cortex-a9
 TARGET_ARCH_VARIANT_FPU := vfpv3-d16
 TARGET_CPU_SMP := true
 
+BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/galaxys2sr/recovery/minui/graphics.c
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/galaxys2sr/recovery/recovery_keys.c
 BOARD_CUSTOM_RECOVERY_UI := ../../device/samsung/galaxys2sr/recovery/recovery_ui.c
 BOARD_HAS_SDCARD_INTERNAL := true
@@ -57,7 +58,6 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x80200000
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 TARGET_PREBUILT_KERNEL := device/samsung/galaxys2sr/kernel
-TARGET_RECOVERY_PRE_COMMAND_CLEAR_REASON := true
 
 BOARD_HAS_NO_SELECT_BUTTON := true
 # Use this flag if the board has a ext4 partition larger than 2gb
