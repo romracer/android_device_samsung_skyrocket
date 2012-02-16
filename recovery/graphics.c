@@ -30,13 +30,26 @@
 #include <pixelflinger/pixelflinger.h>
 #include <cutils/memory.h>
 
-#ifndef BOARD_LDPI_RECOVERY
-	#include "font_10x18.h"
+#ifdef BOARD_USE_CUSTOM_RECOVERY_FONT
+#include BOARD_USE_CUSTOM_RECOVERY_FONT
+#elif defined(BOARD_LDPI_RECOVERY)
+#include "font_7x16.h"
 #else
-	#include "font_7x16.h"
+#include "font_10x18.h"
 #endif
 
 #include "minui.h"
+
+#if defined(RECOVERY_BGRA)
+#define PIXEL_FORMAT GGL_PIXEL_FORMAT_BGRA_8888
+#define PIXEL_SIZE   4
+#elif defined(RECOVERY_RGBX)
+#define PIXEL_FORMAT GGL_PIXEL_FORMAT_RGBX_8888
+#define PIXEL_SIZE   4
+#else
+#define PIXEL_FORMAT GGL_PIXEL_FORMAT_RGB_565
+#define PIXEL_SIZE   2
+#endif
 
 typedef struct {
     GGLSurface texture;
@@ -73,6 +86,36 @@ static int get_framebuffer(GGLSurface *fb)
         perror("failed to get fb0 info");
         close(fd);
         return -1;
+    }
+
+    vi.bits_per_pixel = PIXEL_SIZE * 8;
+    if (PIXEL_FORMAT == GGL_PIXEL_FORMAT_BGRA_8888) {
+      vi.red.offset     = 8;
+      vi.red.length     = 8;
+      vi.green.offset   = 16;
+      vi.green.length   = 8;
+      vi.blue.offset    = 24;
+      vi.blue.length    = 8;
+      vi.transp.offset  = 0;
+      vi.transp.length  = 8;
+    } else if (PIXEL_FORMAT == GGL_PIXEL_FORMAT_RGBX_8888) {
+      vi.red.offset     = 24;
+      vi.red.length     = 8;
+      vi.green.offset   = 16;
+      vi.green.length   = 8;
+      vi.blue.offset    = 8;
+      vi.blue.length    = 8;
+      vi.transp.offset  = 0;
+      vi.transp.length  = 8;
+    } else { /* RGB565*/
+      vi.red.offset     = 11;
+      vi.red.length     = 5;
+      vi.green.offset   = 5;
+      vi.green.length   = 6;
+      vi.blue.offset    = 0;
+      vi.blue.length    = 5;
+      vi.transp.offset  = 0;
+      vi.transp.length  = 0;
     }
 
     if (ioctl(fd, FBIOGET_VSCREENINFO, &vi) < 0) {
@@ -210,6 +253,12 @@ int gr_measure(const char *s)
     return gr_font->cwidth * strlen(s);
 }
 
+void gr_font_size(int *x, int *y)
+{
+    *x = gr_font->cwidth;
+    *y = gr_font->cheight;
+}
+
 int gr_text(int x, int y, const char *s)
 {
     GGLContext *gl = gr_context;
@@ -338,6 +387,9 @@ int gr_init(void)
     gl->enable(gl, GGL_BLEND);
     gl->blendFunc(gl, GGL_SRC_ALPHA, GGL_ONE_MINUS_SRC_ALPHA);
 
+    gr_fb_blank(true);
+    gr_fb_blank(false);
+
     return 0;
 }
 
@@ -368,3 +420,11 @@ gr_pixel *gr_fb_data(void)
     return (unsigned short *) gr_mem_surface.data;
 }
 
+void gr_fb_blank(bool blank)
+{
+    int ret;
+
+    ret = ioctl(gr_fb_fd, FBIOBLANK, blank ? FB_BLANK_POWERDOWN : FB_BLANK_UNBLANK);
+    if (ret < 0)
+        perror("ioctl(): blank");
+}
