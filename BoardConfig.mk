@@ -40,7 +40,7 @@ TARGET_ARCH_VARIANT_CPU := cortex-a9
 TARGET_ARCH_VARIANT_FPU := vfpv3-d16
 TARGET_CPU_SMP := true
 
-BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/galaxys2sr/recovery/minui/graphics.c
+BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/galaxys2sr/recovery/graphics.c
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/galaxys2sr/recovery/recovery_keys.c
 BOARD_CUSTOM_RECOVERY_UI := ../../device/samsung/galaxys2sr/recovery/recovery_ui.c
 BOARD_HAS_SDCARD_INTERNAL := true
