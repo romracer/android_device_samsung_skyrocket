@@ -31,14 +31,21 @@ USE_CAMERA_STUB := true
 BOARD_USES_GENERIC_AUDIO := false
 
 TARGET_NO_BOOTLOADER := true
+TARGET_NO_KERNEL := false
+TARGET_NO_RADIOIMAGE := true
+
 TARGET_BOOTLOADER_BOARD_NAME := MSM8660_SURF
 TARGET_BOARD_PLATFORM := msm8660
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
-TARGET_ARCH_VARIANT := armv7-a
+TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_ARCH_VARIANT_CPU := cortex-a9
-TARGET_ARCH_VARIANT_FPU := vfpv3-d16
+TARGET_ARCH_VARIANT_FPU := neon
 TARGET_CPU_SMP := true
+
+TARGET_GLOBAL_CFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 
 BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/galaxys2sr/recovery/graphics.c
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/galaxys2sr/recovery/recovery_keys.c
@@ -49,6 +56,7 @@ BOARD_HAS_INTERNAL_PARTITIONS := true
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom msm_watchdog.appsbark=0 msm_watchdog.enable=1 loglevel=4
 BOARD_KERNEL_BASE := 0x40400000
 BOARD_KERNEL_PAGESIZE := 2048
+BOARD_FORCE_RAMDISK_ADDRESS := 0x41900000
 
 # fix this up by examining /proc/mtd on a running device
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00a00000
@@ -65,6 +73,9 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_USES_MMCUTILS := true
+BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
+BOARD_VOLD_MAX_PARTITIONS := 28
+BOARD_USES_SAMSUNG_AUDIO_STUB := true
 
 BOARD_DATA_DEVICE := /dev/block/mmcblk0p25
 BOARD_DATA_FILESYSTEM := ext4

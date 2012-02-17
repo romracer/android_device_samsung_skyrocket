@@ -1,3 +1,69 @@
 #
 # system.prop for galaxys2sr
 #
+ro.sf.lcd_density=240
+
+rild.libpath=/system/lib/libril-qc-qmi-1.so
+rild.libargs=-d /dev/smd0
+persist.rild.nitz_plmn=
+persist.rild.nitz_long_ons_0=
+persist.rild.nitz_long_ons_1=
+persist.rild.nitz_long_ons_2=
+persist.rild.nitz_long_ons_3=
+persist.rild.nitz_short_ons_0=
+persist.rild.nitz_short_ons_1=
+persist.rild.nitz_short_ons_2=
+persist.rild.nitz_short_ons_3=
+ril.subscription.types=NV,RUIM
+debug.sf.hw=1
+debug.composition.type=c2d
+debug.overlayui.enable=1
+dev.pm.dyn_samplingrate=1
+
+ro.hdmi.enable=true
+lpa.decode=true
+lpa.use-stagefright=true
+
+#
+# system props for the data modules
+#
+ro.use_data_netmgrd=true
+persist.data_netmgrd_nint=16
+
+#
+# system props for SD card emulation of emmc partition
+#
+ro.emmc.sdcard.partition=17
+
+#system props for time-services
+persist.timed.enable=true
+
+# System props for audio
+persist.audio.fluence.mode=endfire
+persist.audio.vr.enable=false
+
+# System property for SIM
+persist.radio.apm_sim_not_pwdn=1
+
+# System property for sms
+persist.radio.sms_sync_sending=1
+
+ro.cwm.prefer_tar=true
+
+#
+# ADDITIONAL_BUILD_PROPERTIES
+#
+ro.sf.lcd_density=240
+ro.com.google.clientidbase=android-samsung
+ro.com.google.locationfeatures=1
+ro.com.google.networklocation=1
+ro.setupwizard.enable_bypass=1
+dalvik.vm.heapsize=64m
+dalvik.vm.lockprof.threshold=500
+dalvik.vm.dexopt-flags=m=y
+keyguard.no_require_sim=true
+ro.kernel.android.checkjni=1
+ro.setupwizard.mode=OPTIONAL
+dalvik.vm.dexopt-flags=m=y
+net.bt.name=Android
+dalvik.vm.stack-trace-file=/data/anr/traces.txt
