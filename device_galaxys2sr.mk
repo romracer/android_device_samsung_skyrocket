@@ -27,6 +27,12 @@ PRODUCT_LOCALES := en_US
 # galaxys2sr uses high-density artwork where available
 PRODUCT_LOCALES += hdpi
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/ueventd.rc:root/ueventd.rc \
+    $(LOCAL_PATH)/init.qcom.lpm_boot.sh:root/init.qcom.lpm_boot.sh \
+    $(LOCAL_PATH)/init.qcom.sh:root/init.qcom.sh \
+    $(LOCAL_PATH)/lpm.rc:root/lpm.rc
+
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := device/samsung/galaxys2sr/kernel
 else
