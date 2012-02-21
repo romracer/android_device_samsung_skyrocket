@@ -25,7 +25,7 @@
 # against the traditional rules of inheritance).
 
 # inherit from the proprietary version
--include vendor/samsung/galaxys2sr/BoardConfigVendor.mk
+-include vendor/samsung/hercules/BoardConfigVendor.mk
 
 USE_CAMERA_STUB := true
 BOARD_USES_GENERIC_AUDIO := false
@@ -47,9 +47,9 @@ TARGET_CPU_SMP := true
 TARGET_GLOBAL_CFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 
-BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/galaxys2sr/recovery/graphics.c
-BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/galaxys2sr/recovery/recovery_keys.c
-BOARD_CUSTOM_RECOVERY_UI := ../../device/samsung/galaxys2sr/recovery/recovery_ui.c
+BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/hercules/recovery/graphics.c
+BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/hercules/recovery/recovery_keys.c
+BOARD_CUSTOM_RECOVERY_UI := ../../device/samsung/hercules/recovery/recovery_ui.c
 BOARD_HAS_SDCARD_INTERNAL := true
 BOARD_HAS_INTERNAL_PARTITIONS := true
 
@@ -65,7 +65,7 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x25600000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x80200000
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-TARGET_PREBUILT_KERNEL := device/samsung/galaxys2sr/kernel
+TARGET_PREBUILT_KERNEL := device/samsung/hercules/kernel
 
 BOARD_HAS_NO_SELECT_BUTTON := true
 # Use this flag if the board has a ext4 partition larger than 2gb

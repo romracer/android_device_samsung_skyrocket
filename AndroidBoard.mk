@@ -28,4 +28,4 @@ include $(CLEAR_VARS)
 #	$(transform-prebuilt-to-target)
 
 # include the non-open-source counterpart to this file
--include vendor/samsung/galaxys2sr/AndroidBoardVendor.mk
+-include vendor/samsung/hercules/AndroidBoardVendor.mk

@@ -32,6 +32,7 @@
 /dev/uinput               0660   system     bluetooth
 /dev/alarm                0664   system     radio
 /dev/tty0                 0660   root       system
+/dev/sdio_tty_ciq_00      0660   system     system
 /dev/graphics/*           0660   root       graphics
 /dev/msm_hw3dm            0660   system     graphics
 /dev/msm_rotator          0660   system     graphics
@@ -114,7 +115,7 @@
 /dev/block/mmcblk0p19     0660   system     system
 /dev/block/mmcblk0p20     0660   system     system
 /dev/usb_accessory        0660   root       usb
-/dev/tspdrv		  0660	 shell	    shell
+/dev/tspdrv		  0660	 system    system
 /dev/lcdtest		  0660	 system     graphics
 
 # CDMA radio interface MUX
@@ -148,7 +149,3 @@
 /dev/msm_amrnb_in         0640  system       audio
 /dev/msm_mvs              0660  system       audio
 /sys/devices/virtual/usb_composite/*   enable      0664  root   system
-
-# permission for CIQ
-/dev/sdio_tty_ciq_00      0660  system       system
-
