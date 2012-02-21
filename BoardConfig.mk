@@ -47,6 +47,7 @@ TARGET_CPU_SMP := true
 TARGET_GLOBAL_CFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 
+BOARD_USE_CUSTOM_RECOVERY_FONT := roboto_15x24.h
 BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/hercules/recovery/graphics.c
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/hercules/recovery/recovery_keys.c
 BOARD_CUSTOM_RECOVERY_UI := ../../device/samsung/hercules/recovery/recovery_ui.c
