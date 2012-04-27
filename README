@@ -1,4 +1,4 @@
-Device configuration for the Samsung Hercules (SGH-I727 and SGH-T989)
+Device configuration for the Samsung Skyrocket (SGH-I727)
 
 Copyright (C) 2011-2012 The CyanogenMod Project
 
@@ -9,5 +9,5 @@ Copyright (C) 2011-2012 The CyanogenMod Project
       http://www.apache.org/licenses/LICENSE-2.0
 
 
-For building CyanogenMod for the Samsung Hercules, please see:
+For building CyanogenMod for the Samsung Skyrocket, please see:
 TODO
