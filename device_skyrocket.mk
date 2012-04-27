@@ -19,12 +19,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
-$(call inherit-product-if-exists, vendor/samsung/hercules/hercules-vendor.mk)
+$(call inherit-product-if-exists, vendor/samsung/skyrocket/skyrocket-vendor.mk)
 
 # Set en_US as default locale
 PRODUCT_LOCALES := en_US
 
-# hercules uses high-density artwork where available
+# skyrocket uses high-density artwork where available
 PRODUCT_LOCALES += hdpi
 
 PRODUCT_COPY_FILES += \
@@ -35,7 +35,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-	LOCAL_KERNEL := device/samsung/hercules/kernel
+	LOCAL_KERNEL := device/samsung/skyrocket/kernel
 else
 	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
@@ -45,12 +45,12 @@ PRODUCT_COPY_FILES += \
 
 $(call inherit-product, build/target/product/full.mk)
 
-DEVICE_PACKAGE_OVERLAYS += device/samsung/hercules/overlay
+DEVICE_PACKAGE_OVERLAYS += device/samsung/skyrocket/overlay
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
-PRODUCT_NAME := full_hercules
-PRODUCT_DEVICE := hercules
-PRODUCT_MODEL := SGH-T989
+PRODUCT_NAME := SGH-I727
+PRODUCT_DEVICE := SGH-I727
+PRODUCT_MODEL := SAMSUNG-SGH-I727
 PRODUCT_MANUFACTURER := samsung
-PRODUCT_BRAND := generic
+PRODUCT_BRAND := samsung
