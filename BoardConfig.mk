@@ -55,7 +55,7 @@ BOARD_CUSTOM_RECOVERY_UI := ../../device/samsung/skyrocket/recovery/recovery_ui.
 BOARD_HAS_SDCARD_INTERNAL := true
 BOARD_HAS_INTERNAL_PARTITIONS := true
 
-BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom msm_watchdog.appsbark=0 msm_watchdog.enable=1 loglevel=4
+BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom usb_id_pin_rework=true
 BOARD_KERNEL_BASE := 0x40400000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_FORCE_RAMDISK_ADDRESS := 0x41900000
