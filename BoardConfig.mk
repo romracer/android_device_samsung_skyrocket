@@ -87,8 +87,8 @@ BOARD_CACHE_DEVICE := /dev/block/mmcblk0p26
 BOARD_CACHE_FILESYSTEM := ext4
 BOARD_CACHE_FILESYSTEM_OPTIONS := nosuid,nodev,relatime,barrier=1,noauto_da_alloc
 
-BOARD_UMS_LUNFILE := /sys/devices/platform/msm_hsusb/gadget/lun1/file
-BOARD_UMS_LUNFILE2 := /sys/devices/platform/msm_hsusb/gadget/lun0/file
+BOARD_UMS_LUNFILE := /sys/devices/platform/usb_mass_storage/lun1/file
+BOARD_UMS_LUNFILE2 := /sys/devices/platform/usb_mass_storage/lun0/file
 
 USE_OPENGL_RENDERER :=true
 
