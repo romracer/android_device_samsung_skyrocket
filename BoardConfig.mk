@@ -52,8 +52,6 @@ TARGET_RECOVERY_INITRC := device/samsung/skyrocket/recovery/init.rc
 BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/skyrocket/recovery/graphics.c
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/skyrocket/recovery/recovery_keys.c
 BOARD_CUSTOM_RECOVERY_UI := ../../device/samsung/skyrocket/recovery/recovery_ui.c
-BOARD_HAS_SDCARD_INTERNAL := true
-BOARD_HAS_INTERNAL_PARTITIONS := true
 
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom usb_id_pin_rework=true
 BOARD_KERNEL_BASE := 0x40400000
@@ -89,10 +87,8 @@ BOARD_CACHE_DEVICE := /dev/block/mmcblk0p26
 BOARD_CACHE_FILESYSTEM := ext4
 BOARD_CACHE_FILESYSTEM_OPTIONS := nosuid,nodev,relatime,barrier=1,noauto_da_alloc
 
-BOARD_SDCARD_DEVICE_PRIMARY := /dev/block/mmcblk1p1
-BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mmcblk1
-BOARD_SDCARD_DEVICE_INTERNAL := /dev/block/mmcblk0p28
 BOARD_UMS_LUNFILE := /sys/devices/platform/msm_hsusb/gadget/lun1/file
+BOARD_UMS_LUNFILE2 := /sys/devices/platform/msm_hsusb/gadget/lun0/file
 
 USE_OPENGL_RENDERER :=true
 
